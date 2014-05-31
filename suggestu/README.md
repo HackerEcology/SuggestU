@@ -1,1 +1,1 @@
-# This directory is where static files will be placed
+# Django Project root dir
