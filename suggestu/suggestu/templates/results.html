@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ScholaRec: Recommendation Engine for Scholarly Articles</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="scholarec">
+    <meta name="author" content="arcolife">
+    
+    <link href="/static/flatly/bootstrap.css" rel="stylesheet">
+    <link href="/static/flatly/style.css" rel="stylesheet">
+
+    <link href="/static/flatly/style.css" rel="stylesheet">
+    <!--link href="/static/css/jquery.rating.css" rel="stylesheet"-->
+    
+    <!--link href="/static/flatly/style.less" type="text/css" rel="stylesheet"-->
+
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">  
+    <script type="text/javascript" src="/static/js/jquery/jquery.min.js">
+      // using jQuery
+      function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie != '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+			  var cookie = jQuery.trim(cookies[i]);
+			  // Does this cookie string begin with the name we want?
+			  if (cookie.substring(0, name.length + 1) == (name + '=')) {
+			  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+			  break;
+			  }
+			  }
+			  }
+			  return cookieValue;
+			  }
+			  var csrftoken = getCookie('csrftoken');
+			  
+			  console.log(csrftoken);
+			  </script>
+
+    {% load search_tags %}
+    
+  </head>  
+  <body>    
+    <div class="navbar navbar-default">
+      <ul class="breadcrumb">
+	<li><a href="/">Home</a></li>
+	<li class="active">Results</li>
+      </ul>
+      
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+	<ul class="nav navbar-nav">
+	  <form action="/results/1" method="get" class="navbar-form navbar-left">
+	    <input  id="search" name="q" type="text" class="form-control col-lg-8" placeholder="Search">	    
+	    &nbsp;
+	  </form>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+	  <li><a href="#about" data-toggle="modal">About Us</a></li>
+	  <li><a href="/profile"><span class="badge">{{username}}</span></a></li>
+	</ul>
+      </div>
+    </div>
+
+    <div class="modal fade" id="about" >
+      <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title">About This Application</h4>
+	  </div>
+	  <div class="modal-body">
+	    <p>
+	      lorem ipsum<br>
+	      <hr>
+	      Hosted <a href="https://github.com/HackerEcology/SuggestU">HERE</a> <br>
+	    </p>
+	  </div>
+	  <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-primary">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-primary">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">    
+      <div class="panel panel-info">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-primary">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-success">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Data</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+
+   <div class="col-lg-3">
+      <div class="panel panel-danger">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Data</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+
+   <div class="col-lg-3">
+      <div class="panel panel-default">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Recommendations</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+
+   <div class="col-lg-3">
+      <div class="panel panel-warning">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Data</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-primary">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-primary">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">    
+      <div class="panel panel-info">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-primary">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Curated News</h3>
+	</div>
+	<div class="panel-body">
+	  <a href="#">
+	    <span class="label label-success">
+	      sample content</span>
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="panel panel-success">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Data</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+
+   <div class="col-lg-3">
+      <div class="panel panel-danger">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Data</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+
+   <div class="col-lg-3">
+      <div class="panel panel-default">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Recommendations</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+
+   <div class="col-lg-3">
+      <div class="panel panel-warning">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Data</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    blabla
+	  </p>
+	</div>
+      </div> 
+    </div>
+  </body>
+
+  <!-- javascript
+       ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="/static/js/bootstrap/bootstrap.min.js"></script>
+  <!--<script src="/static/js/angular/angular.min.js"></script>
+      <script src="/static/js/angular/angular-animate.min.js"></script>-->
+  <script src="/static/flatly/bootstrap-multiselect.js"></script>
+  <!-- Initialize the plugins: -->
+
+  <script type="text/javascript">
+    $(".msg_head").click(function(){
+    $(this).next(".msg_body").slideToggle(100);
+    })
+    .toggle( function() {
+    $(this).children("span").text("[+]");
+    }, function() {
+    $(this).children("span").text("[-]");
+    });
+  </script>
+
+  <!--<div>
+      <footer>
+	&copy; ScholaRec (2014)
+      </footer>
+  </div>-->
+</html>

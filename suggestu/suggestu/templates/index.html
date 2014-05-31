@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>ScholaRec| Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700,500,900" rel="stylesheet" type="text/css">
+    <script src="/static/js/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/static/js/script.js" type="text/javascript"></script>
+    <script src="/static/js/jquery/jquery.magnific-popup.js" type="text/javascript"></script>
+    <link href="/static/css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="/static/js/jquery/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.fancybox.css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="/static/flatly/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/flatly/bootswatch.less" media="screen" />
+
+  </head>
+
+  <script type="text/javascript">
+    function change_icon() {
+    $(".icon-search").hide();
+    $("#loading").show();
+    }
+  </script>
+
+  <script type="text/javascript">
+    (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/client:plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+
+  <body>
+    <div class="header" id="home">
+      <div class="header_top">
+	<div class="wrap">
+	  
+	  <div class="menu" style="float: left">
+	    <ul class="nav nav-pills">
+	      <li><a href="#home" class="scroll">Home</a></li>
+	      <li><a href="#about" class="scroll">About Us</a></li>
+	      
+	    </ul>
+	  </div>
+	  
+	  <div class="menu">
+	    <ul class="nav nav-pills">
+	      {% if user.username %}
+	      <li class="active">
+		<a href="/profile">Logged In as<span class="badge">{{ user.username }}</span></a>
+	      </li>
+	      <li class="">
+		<a href="/logout/">Log<span class="badge">Out</span></a>
+	      </li>
+
+	      {% else %}
+	      
+	      <li>
+		<a href="/facebook/connect/">
+		  <button type="button" class="btn btn-primary btn-sm">Login Through FaceBook</button>
+		</a>
+	      </li>
+	      <li>		
+		<a href="/login/" >
+		  <button type="button" id="loginButton" class="btn btn-primary btn-sm">
+		    Login (other)
+		  </button>
+		</a>
+	      </li>	      
+	      {% endif %}
+	    </ul>
+	  </div>							
+
+	</div>
+      </div>
+    </div>		
+
+    <div class="main">
+      <div class="content">	
+	
+	<div class="content_top">  
+	  <div class="wrap">                                  		
+	    <div class="banner_desc">
+              <img src="/static/img/SuggestU-logo.png" alt="SuggestU Logo" style="display: right;"/>  
+	      <br />
+	      <br />
+	      <form action="/results/1" method="get">
+		<p>
+		  <input id="search" name="q" type="text" 
+			 style="color: black; font-family: monospace; font-size: larger;" 
+			 placeholder="Keywords, Phrases, basically anything ..." size=50>
+		  <button class="btn btn-sm btn-inverse" id="artist_submit" type="submit" onclick="change_icon()">
+		    <i class="icon-search"></i>
+		    <img id="loading" src="/static/img/face-loader.gif" style="display: none;">
+		    Search
+		  </button>
+		</p>
+	      </form>
+	      <h1>A Generic Suggestion Engine<br><span>for Science and Humanity</span></h1>  
+            </div>
+	  </div>
+	</div>
+	
+	<div class="footer" id="about">
+   	  <div class="wrap">
+   	    <div class="section group example">
+	      <div class="col-lg-3">
+		<h3>Overview</h3>
+		<ul>
+		  <li><a href="#">The Project</a></li>
+		</ul>				   
+ 	      </div>
+	      
+ 	      <div class="col-lg-3">
+		<h3>News</h3>
+		<ul>
+		  <li><a href="#">Title 1</a></li>
+		  <li><a href="#">Title 2</a></li>
+		</ul>
+	      </div>
+
+	      <div class="col-lg-3">
+		<h3>Sources</h3>
+		<ul>
+		  <li><a href="#">WSJ</a></li>
+		  <li><a href="#">Wikipedia</a></li>
+		</ul>				   
+ 	      </div>
+
+	      <div class="col-lg-3">		
+		<h3>Stay in touch</h3>
+		<ul>
+		  <li class="googleplus"><a href="#" target="_blank">
+		      <img src="/static/img/googleplus.png" alt="" /> Google+</a>
+		  </li>
+		  <li class="twitter"><a href="#" target="_blank"> 
+		      <img src="/static/img/twitter.png" alt="" /> Twitter</a>
+		  </li>
+		  <li><a href="#" target="_blank"> <img src="/static/img/facebook.png" alt="" /> Facebook</a></li>
+		  <div class="clear"></div>
+		</ul>
+   	      </div>			   
+ 	    </div>
+	    <div class="clear"></div>
+	  </div>
+	</div> 
+      </div> 
+      <div class="copy_right">
+	<div class="wrap">
+	  <b>&copy;  created by <a style="color: purple" href="http://work.arcolife.in/"><span>arcolife</span></a>; <br />Team HackerEcology</b>
+	</div>
+      </div>
+  </body>
+</html>
