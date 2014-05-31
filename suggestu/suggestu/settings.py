@@ -10,14 +10,15 @@ CUSTOM_USER_MODEL = bool(int(os.environ.get('CUSTOM_USER_MODEL', '1')))
 MODE = os.environ.get('MODE', 'standalone')
 BASE_ROOT = os.path.abspath(
     os.path.join(os.path.split(__file__)[0]))
+PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 TEST_RUNNER = 'suggestu.users.tests.NoSQLTestRunner'
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Archit Sharma', os.environ.get('EMAIL_FROM')),
 )
 
 MANAGERS = ADMINS
@@ -76,7 +77,8 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(BASE_ROOT, 'media/')
+MEDIA_ROOT = '/home/' + os.environ.get('USER') + '/collected/media/'
+# MEDIA_ROOT = os.path.join(BASE_ROOT, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -87,8 +89,8 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/' + os.environ.get('USER') + '/collected/static/'
+# STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -102,7 +104,8 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'static/'),
+    os.path.join( PROJECT_ROOT, 'static'),
+    #os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'static/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -457,3 +460,6 @@ elif MODE == 'userena':
         'userena',
         'guardian',
     )
+
+ALLOWED_HOSTS = ['*']
+ALLOWED_INCLUDE_ROOTS = (STATICFILES_DIRS, TEMPLATE_DIRS)
