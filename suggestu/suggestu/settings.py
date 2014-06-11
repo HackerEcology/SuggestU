@@ -14,7 +14,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 TEST_RUNNER = 'suggestu.users.tests.NoSQLTestRunner'
 
-DEBUG = False
+DEBUG = True #False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
