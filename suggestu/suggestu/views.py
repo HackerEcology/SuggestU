@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 import datetime
 
 #from search import es_query
-#from users import control
+from users import control
 #from open_facebook import OpenFacebook
 #from django_facebook.api import get_persistent_graph
 #import json
@@ -26,7 +26,11 @@ def profile(request):
 def results(request, page):    
     query = request.GET.get('q', None)
     if bool(query.split()):
+        history = control.add_to_history(query, str(request.user))
+        if len(history) > 5:
+            history = history[-5:]
         return render_to_response('results.html', 
-                                  {'q' : query })
+                                  {'q' : query,
+                                   'history' : history})
     else:
         return HttpResponseRedirect('/')
