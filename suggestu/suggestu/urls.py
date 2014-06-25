@@ -13,6 +13,7 @@ from django.conf import settings
 #####################
 import search.urls
 import users.urls
+import scrapers.urls
 from suggestu import views
 
 # Patterns
@@ -20,6 +21,7 @@ urlpatterns = patterns('',
                        # urls specific to this app
                        
                        url(r'search/', include(search.urls)),
+                       url(r'scrape/', include(scrapers.urls)),
                        # Uncomment the admin/doc line below to enable admin documentation:
                        #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
                        url(r'^admin/', include(admin.site.urls)),
