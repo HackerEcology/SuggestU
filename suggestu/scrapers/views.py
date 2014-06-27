@@ -16,12 +16,12 @@ def list_spiders(request):
     return HttpResponse('\n'.join(response['spiders']), content_type="application/json")
 
 def list_jobs(request):
-    response = urlopen("http://localhost:6800/listjobs.json?project=default")    
+    response = urlopen("http://127.0.0.1:6800/listjobs.json?project=default")    
     #response = json.loads(response.read())
     return HttpResponse(response.read(), content_type="application/json")
 
 def deploy(request, spider):
-    url = "curl http://localhost:6800/schedule.json -d project=default -d spider=%s" % (spider)
+    url = "curl http://127.0.0.1:6800/schedule.json -d project=default -d spider=%s" % (spider)
     try:
         call(url.split())
         return HttpResponse("Done!")
