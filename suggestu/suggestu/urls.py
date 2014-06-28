@@ -39,8 +39,8 @@ urlpatterns = patterns('',
                        url(r'^logout/$', 'suggestu.app.views.logout'),
                        url(r'^done/$', 'suggestu.app.views.done', name='done'),
                        url(r'^email/$', 'suggestu.app.views.require_email', name='require_email'),
-                       url(r'', include('social.apps.django_app.urls', namespace='social')),
-                       
+		       url(r'^newsdump/$','suggestu.app.views.newsdump'),
+                       url(r'', include('social.apps.django_app.urls', namespace='social')),                    
 )
 
 if settings.MODE == 'userena':

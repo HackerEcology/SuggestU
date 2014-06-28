@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 # app specific
 import datetime
+import urllib
 
 #from search import es_query
 from users import control
@@ -34,3 +35,9 @@ def results(request, page):
                                    'history' : history})
     else:
         return HttpResponseRedirect('/')
+'''
+def newsdump(request,page):
+    news = urllib.request.urlopen("http://http://localhost:6800/items/default/HBR/601f1cf3fc7911e3a9aa14109fdb5de1.jl").read()
+    print news
+    return
+'''
