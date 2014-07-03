@@ -18,6 +18,11 @@ def list_jobs(request):
     response = urlopen("http://127.0.0.1:6800/listjobs.json?project=default")    
     return HttpResponse(response.read(), content_type="application/json")
 
+
+def list_items(request):
+    response = urlopen("http://127.0.0.1:6800/items/default")    
+    return HttpResponse(response.read())
+
 def deploy(request, spider):
     url = "curl http://127.0.0.1:6800/schedule.json -d project=default -d spider=%s" % (spider)
     try:

@@ -1,6 +1,8 @@
-- To list all spiders: http://localhost:8000/scrape/_all
+- To list all spiders: http://localhost:8000/scrape/_spiders
 
 - To list all jobs: http://localhost:8000/scrape/_jobs
+
+- To list all items: http://localhost:8000/scrape/_items
 
 - To render one of the spiders: http://localhost:8000/scrape/render/SPIDER_NAME/JOB_ID
 
