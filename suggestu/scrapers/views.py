@@ -12,12 +12,10 @@ def test(request):
 
 def list_spiders(request):
     response = urlopen("http://127.0.0.1:6800/listspiders.json?project=default")
-    response = json.loads(response.read())
-    return HttpResponse('\n'.join(response['spiders']), content_type="application/json")
+    return HttpResponse(response.read(), content_type="application/json")
 
 def list_jobs(request):
     response = urlopen("http://127.0.0.1:6800/listjobs.json?project=default")    
-    #response = json.loads(response.read())
     return HttpResponse(response.read(), content_type="application/json")
 
 def deploy(request, spider):
@@ -34,5 +32,12 @@ def render(request, spider, job):
     if "404 - No Such Resource" in response:
         return HttpResponse(response)
     else:
+        response = response.split('\n')
+        try:
+            while True:
+                response.remove('')
+        except:
+            pass
+        response = [json.loads(x) for x in response]
         return HttpResponse(json.dumps(response), content_type="application/json")
 
