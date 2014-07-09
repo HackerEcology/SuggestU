@@ -18,9 +18,16 @@ def list_jobs(request):
     response = urlopen("http://127.0.0.1:6800/listjobs.json?project=default")    
     return HttpResponse(response.read(), content_type="application/json")
 
-
-def list_items(request):
-    response = urlopen("http://127.0.0.1:6800/items/default")    
+def list_items(request, spider, dump):
+    BASE = "http://127.0.0.1:6800/items/default"
+    if spider == '':
+        url = BASE
+    else:
+        print "spider: ", spider
+        print "dump: ", dump
+        url = BASE + '/' + spider + '/' + dump
+        print "url: ", url
+    response = urlopen(url)
     return HttpResponse(response.read())
 
 def deploy(request, spider):
