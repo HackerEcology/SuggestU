@@ -168,6 +168,7 @@ INSTALLED_APPS = (
     'south',
     'open_facebook',
     'users',
+    'relater',
     #'bootstrap_pagination',
     #'django_extensions',
 )
