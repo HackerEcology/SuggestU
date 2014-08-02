@@ -25,6 +25,9 @@ def profile(request):
     return render_to_response('profile.html', context)
 
 def results(request, page):    
+    ## Optionally, include autocomplete
+    # http://suggestqueries.google.com/complete/search?client=chrome&q=how+to <-- return JSON based txt file
+    # OR http://google.com/complete/search?q=how+to&output=toolbar <-- Returns XML with just the suggestions.
     query = request.GET.get('q', None)
     if bool(query.split()):
         history = control.add_to_history(query, str(request.user))
