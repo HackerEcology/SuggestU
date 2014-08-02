@@ -13,11 +13,8 @@ from django.conf import settings
 #####################
 import search.urls
 import users.urls
-<<<<<<< HEAD
 import relater.urls
-=======
 import scrapers.urls
->>>>>>> master
 from suggestu import views
 
 # Patterns
