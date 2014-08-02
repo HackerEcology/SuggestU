@@ -7,6 +7,7 @@ from social.apps.django_app.utils import strategy
 
 from social.backends.google import GooglePlusAuth
 
+import urllib
 
 def logout(request):
     """Logs out user"""
@@ -21,7 +22,6 @@ def login(request):
     return render_to_response('login.html', {
         'plus_id': getattr(settings, 'SOCIAL_AUTH_GOOGLE_PLUS_KEY', None)
     }, RequestContext(request))
-
 
 @login_required
 def done(request):
@@ -39,6 +39,11 @@ def done(request):
         'plus_scope': scope
     }, RequestContext(request))
 
+
+def newsdump(request):
+    news = urllib.urlopen("http://107.170.160.216:6800/items/qrator/HBR/79a676fcfdde11e38c6d04011ab03901.jl").read()
+    print news
+    return render_to_response('newsdump.html',{'news':news},RequestContext(request))
 
 def signup_email(request):
     return render_to_response('email_signup.html', {}, RequestContext(request))

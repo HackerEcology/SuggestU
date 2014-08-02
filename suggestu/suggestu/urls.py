@@ -13,13 +13,17 @@ from django.conf import settings
 #####################
 import search.urls
 import users.urls
+<<<<<<< HEAD
+import relater.urls
+=======
 import scrapers.urls
+>>>>>>> master
 from suggestu import views
 
 # Patterns
 urlpatterns = patterns('',
                        # urls specific to this app
-                       
+                       url(r's_rel', include(relater.urls)),
                        url(r'search/', include(search.urls)),
                        url(r'scrape/', include(scrapers.urls)),
                        # Uncomment the admin/doc line below to enable admin documentation:
@@ -41,8 +45,8 @@ urlpatterns = patterns('',
                        url(r'^logout/$', 'suggestu.app.views.logout'),
                        url(r'^done/$', 'suggestu.app.views.done', name='done'),
                        url(r'^email/$', 'suggestu.app.views.require_email', name='require_email'),
-                       url(r'', include('social.apps.django_app.urls', namespace='social')),
-                       
+		       url(r'^newsdump/$','suggestu.app.views.newsdump'),
+                       url(r'', include('social.apps.django_app.urls', namespace='social')),                    
 )
 
 if settings.MODE == 'userena':
