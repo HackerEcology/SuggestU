@@ -57,3 +57,4 @@ venv/
 *.*~
 key.txt
 *.db
+word2vec/

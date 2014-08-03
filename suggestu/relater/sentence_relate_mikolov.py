@@ -8,8 +8,11 @@ import scipy.stats as sstats
 import shelve
 import linecache
 from gensim.models import Word2Vec
+from os.path import expanduser
 
-vspace = Word2Vec.load_word2vec_format('word2vec/GoogleNews-vectors-negative300.bin', binary=True)  # C binary format
+HOME = expanduser("~")
+
+vspace = Word2Vec.load_word2vec_format(HOME+'/word2vec/GoogleNews-vectors-negative300.bin', binary=True)  # C binary format
 
 small_test_rel_pronouns = ["that","who","which","what","where","whose"]
 prepositions_basic = ["as","at","but","by","down","for","from","in","into","like","near","next","of","off","on","onto","out","over","past","plus","minus","since","than","to","up","with"]
@@ -40,15 +43,15 @@ def verySimpleModelMikolov(sentence1,sentence2):
 					sVector1 = numpy.add(sVector1,vspace[ss])
 				except:
 					pass
-			sVector2 = vspace[bagS1[0]]
-			for ss in bagS1[1:]:
+			sVector2 = vspace[bagS2[0]]
+			for ss in bagS2[1:]:
 				try:
 					sVector2 = numpy.add(sVector2,vspace[ss])
 				except:
 					pass
 			try:
 				cos = scipy.spatial.distance.cosine(sVector1,sVector2)
-				print cos
+				#print cos
 				return cos
 			except:
 				return -4
