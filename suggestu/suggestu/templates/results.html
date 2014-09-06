@@ -80,222 +80,50 @@
 	</div>
       </div>
     </div>
-
-    <div class="col-lg-3">
+    
+    {% if data|length %}
+    {% for entry in data %}
+    <div class="col-lg-4">
       <div class="panel panel-primary">
 	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
+	  <h3 class="panel-title">#{{forloop.counter}}: {{entry.type}}</h3>
 	</div>
 	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
+	  <p>
+	    {% for cat in entry.source.category %}
+	    <a href="/results/1?q={{cat}}">
+	      <span class="label label-{% cycle 'default' 'primary' 'success' 'warning' 'danger' 'info' %}">
+		{{ cat }}</span>
+	    </a>
+	    {% endfor %}
+	    <ol>
+	      {% for k, v in entry.source.items %}
+	      {% if k != 'categories' %}
+	      <li><strong>{{k}}: </strong>{{v}}</li>
+	      {% endif %}
+	      {% endfor %}
+	    </ol>
+	    </p>
+	</div>	
       </div>
-    </div>
-
+    </div> 
+    {% endfor%}
+    {% else %}
     <div class="col-lg-3">
-      <div class="panel panel-primary">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
-	</div>
-	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
-      </div>
+      Your search - <b>{{ q }}</b> - did not match any documents.
+      <br /><br />
+      Suggestions:
+      <br />
+      <ul>
+	<li>Maybe you need to append an asterix ('*') to the keyword? <br />
+	  Eg: <b>nov* results in novel</b>.</li>
+	<li>Make sure that all words are spelled correctly.</li>
+	<li>Try different keywords.</li>
+	<li>Try more general keywords.</li>
+	<li>Try fewer keywords.</li>
+      </ul>
     </div>
-
-    <div class="col-lg-3">    
-      <div class="panel panel-info">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
-	</div>
-	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
-      </div>
-    </div>
-
-    <div class="col-lg-3">
-      <div class="panel panel-primary">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
-	</div>
-	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
-      </div>
-    </div>
-
-    <div class="col-lg-3">
-      <div class="panel panel-success">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Data</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
-
-   <div class="col-lg-3">
-      <div class="panel panel-danger">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Data</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
-
-   <div class="col-lg-3">
-      <div class="panel panel-default">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Recommendations</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
-
-   <div class="col-lg-3">
-      <div class="panel panel-warning">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Data</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
-
-    <div class="col-lg-3">
-      <div class="panel panel-primary">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
-	</div>
-	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
-      </div>
-    </div>
-
-    <div class="col-lg-3">
-      <div class="panel panel-primary">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
-	</div>
-	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
-      </div>
-    </div>
-
-    <div class="col-lg-3">    
-      <div class="panel panel-info">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
-	</div>
-	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
-      </div>
-    </div>
-
-    <div class="col-lg-3">
-      <div class="panel panel-primary">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Curated News</h3>
-	</div>
-	<div class="panel-body">
-	  <a href="#">
-	    <span class="label label-success">
-	      sample content</span>
-	  </a>
-	</div>
-      </div>
-    </div>
-
-    <div class="col-lg-3">
-      <div class="panel panel-success">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Data</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
-
-   <div class="col-lg-3">
-      <div class="panel panel-danger">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Data</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
-
-   <div class="col-lg-3">
-      <div class="panel panel-default">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Recommendations</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
-
-   <div class="col-lg-3">
-      <div class="panel panel-warning">
-	<div class="panel-heading">
-	  <h3 class="panel-title">Data</h3>
-	</div>
-	<div class="panel-body">
-	  <p>
-	    blabla
-	  </p>
-	</div>
-      </div> 
-    </div>
+    {% endif %}
   </body>
 
   <!-- javascript

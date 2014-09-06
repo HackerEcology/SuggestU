@@ -9,21 +9,24 @@ TODO
 ### Web scraping module
 
 - [x] Connecting qrator so we have input data
-- [ ] Add Celery for scheduling spiders.
+- [x] Add Celery/cronjob for scheduling spiders.
 
 ### Results page
 
-- [ ] add results page mockup
-- [ ] change templating to support auto generation of panels based on no. of results (Pinterest style)
+- [x] add results page mockup
+- [x] change templating to support auto generation of panels based on no. of results (Pinterest style)
 - [ ] Add pagination.
 
 
 ### Search Functionality
 
-- [ ] Connect ES so that search works.
+- [x] Connect ES so that search works.
 - [ ] Use NLTK at search query
 - [ ] Integrate google auto suggest
+- [ ] Add URL shortener for bigger links
 - [ ] graph search funationality
+- [ ] Connect sentence relater API
+- [x] connect qrator
 
 ***
 

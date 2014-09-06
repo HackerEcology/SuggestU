@@ -15,7 +15,6 @@ requests>=2.3.0
 requests-oauthlib>=0.4.0
 six>=1.6.1
 wsgiref>=0.1.2
-gensim
 
 # django-social-auth==0.7.28
 # django-openid-auth==0.5
