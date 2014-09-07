@@ -16,14 +16,14 @@ TODO
 - [x] add results page mockup
 - [x] change templating to support auto generation of panels based on no. of results (Pinterest style)
 - [ ] Add pagination.
-
+- [ ] Add trending panel
 
 ### Search Functionality
 
 - [x] Connect ES so that search works.
 - [ ] Use NLTK at search query
 - [ ] Integrate google auto suggest
-- [ ] Add URL shortener for bigger links
+- [x] Add URL shortener for bigger links #not needed
 - [ ] graph search funationality
 - [ ] Connect sentence relater API
 - [x] connect qrator
@@ -32,4 +32,6 @@ TODO
 
 - Features to be included Later:
   - connect ScholaRec
-  - connect SuggestionBox
+  - connect IdeaSuggestionBox
+  - QuoteBase
+  - GraphPedia
