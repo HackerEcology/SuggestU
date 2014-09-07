@@ -96,13 +96,19 @@
 		{{ cat }}</span>
 	    </a>
 	    {% endfor %}
-	    <ol>
+	    <ul>
 	      {% for k, v in entry.source.items %}
-	      {% if k != 'categories' %}
-	      <li><strong>{{k}}: </strong>{{v}}</li>
+	      {% if k == 'published' %}
+	      <li><strong>{{k}}: </strong><i>{{v}}</i></li>	      
+	      {% elif k == 'author' %}
+	      <li><strong>{{k}}: </strong><a href="{{v.uri.0}}">{{v.name.0}}</a></li>
+	      {% elif k == 'link' %}
+	      <li><strong>{{k}}: </strong><a href="{{v}}">Click Here</a></li>
+	      {% elif k != 'category' %}
+	      <li><strong>{{k}}: </strong>{{v|safe}}</li>
 	      {% endif %}
 	      {% endfor %}
-	    </ol>
+	    </ul>
 	    </p>
 	</div>	
       </div>

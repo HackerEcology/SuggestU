@@ -32,6 +32,7 @@ urlpatterns = patterns('',
                        (r'^accounts/', include('django_facebook.auth_urls')), 
                        
                        (r'^profile/?$', views.profile),
+                       (r'^trending/?$', views.trending),
                        (r'^$', views.home),
                        (r'^results/(?P<page>[\w.@+-]+)/?$', views.results,),
 

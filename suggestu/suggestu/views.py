@@ -24,6 +24,24 @@ def profile(request):
     context = RequestContext(request)
     return render_to_response('profile.html', context)
 
+def trending(request):
+    temp = """{
+      "size": 0,
+      "aggs": {
+        "term_stats": {
+          "terms": {
+            "field": "title",
+            "shard_size": 400,
+            "size": 500
+          }
+        }
+      }
+    }"""
+    data = requests.post('http://localhost:9200/qrator/_search', data=temp).content
+    data = json.loads(data)
+    return HttpResponse(json.dumps(data['aggregations']['term_stats']['buckets']), 
+                        content_type="application/json")
+
 def results(request, page):    
     ## Optionally, include autocomplete
     # http://suggestqueries.google.com/complete/search?client=chrome&q=how+to <-- return JSON based txt file
