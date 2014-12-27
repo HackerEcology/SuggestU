@@ -31,10 +31,10 @@ DATABASES = {
 '''
 SESSION_ENGINE = 'mongoengine.django.sessions' # optional
 
-_MONGODB_USER = os.environ.get('HE_user')
-_MONGODB_PASSWD = os.environ.get('HE_pass')
+_MONGODB_USER = os.environ.get('HE_USER')
+_MONGODB_PASSWD = os.environ.get('HE_PASS')
 _MONGODB_HOST = 'localhost'
-_MONGODB_NAME = 'suggestu'
+_MONGODB_NAME = os.environ.get('HE_DB')
 _MONGODB_DATABASE_HOST = \
                          'mongodb://%s:%s@%s/%s' \
                          % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
