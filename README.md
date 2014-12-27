@@ -24,13 +24,14 @@ A Generic Suggestion Engine for 'all things online'.
   - Append these lines to ```./venv/bin/activate```:
 
     ```
-    export HE_USER='arco'
+    export HE_USER='superman'
     export HE_PASS='1234'
-    export HE_DB='jugad'
+    export HE_DB='suggestu'
     export DJANGO_SECRET='#@$#%^refdsdgUDRDFhy45766*DGGR&^REfSDG'
     ```
-
-  - Note: Change your secret key here, to a long random set of characters.
+  - Note: 
+    - Be sure to change your secret key here, to a long random set of characters.
+    - Be sure to setup mongodb instance with valid credentials that match the ones above 
     
   - Then from project root, run: ```# sourve venv/bin/activate```
 
