@@ -1,6 +1,6 @@
 SuggestU
 ========
-1;2802;0c
+
 A Generic Suggestion Engine for 'all things online'.
 
 * Coming soon..
